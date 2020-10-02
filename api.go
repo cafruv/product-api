@@ -1,18 +1,12 @@
 package main
 
 import (
-<<<<<<< HEAD
 	"context"
 	"log"
 	"net/http"
 	"os"
 	"os/signal"
 	"time"
-=======
-	"log"
-	"net/http"
-	"os"
->>>>>>> 5180714a767b170a1b2807c7520d6314ac5d5251
 
 	"github.com/cafruv/go-api/handlers"
 )
@@ -22,7 +16,6 @@ func main() {
 	hh := handlers.NewHello(l)
 	gh := handlers.NewGoodbye(l)
 	sm := http.NewServeMux()
-<<<<<<< HEAD
 
 	sm.Handle("/", hh)
 	sm.Handle("/goodbye", gh)
@@ -61,11 +54,4 @@ func main() {
 	ctx, _ := context.WithTimeout(context.Background(), 30*time.Second)
 	s.Shutdown(ctx)
 
-=======
-
-	sm.Handle("/", hh)
-	sm.Handle("/goodbye", gh)
-
-	http.ListenAndServe(":9000", sm)
->>>>>>> 5180714a767b170a1b2807c7520d6314ac5d5251
 }
