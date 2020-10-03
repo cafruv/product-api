@@ -8,18 +8,15 @@ import (
 	"os/signal"
 	"time"
 
-	"github.com/cafruv/go-api/handlers"
+	"github.com/cafruv/product-api/handlers"
 )
 
 func main() {
 	l := log.New(os.Stdout, "go-api", log.LstdFlags)
-	hh := handlers.NewHello(l)
-	gh := handlers.NewGoodbye(l)
+
+	ph := handlers.NewProducts(l)
 	sm := http.NewServeMux()
-
-	sm.Handle("/", hh)
-	sm.Handle("/goodbye", gh)
-
+	sm.Handle("/", ph)
 	// create a new server
 	s := http.Server{
 		Addr:         "localhost:9090",  // configure the bind address
